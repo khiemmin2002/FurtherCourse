@@ -1,6 +1,6 @@
 # Comprehensive Course Repository: Lectures and Tutorials
 
-Welcome to the centralized repository for [Your Course Name]! This repository is meticulously curated to house the complete collection of source codes, accompanying the extensive suite of educational content delivered throughout the course. It is an invaluable resource for students, educators, and anyone interested in deepening their understanding of [Main Course Topic].
+Welcome to the centralized repository for Further Programming course! This repository is meticulously curated to house the complete collection of source codes, accompanying the extensive suite of educational content delivered throughout the course. It is an invaluable resource for students, educators, and anyone interested in deepening their understanding of Java.
 
 # What's Inside:
 Lecture Materials: Each folder is structured to reflect the course's syllabus, containing detailed source code examples explained during lectures. These are crafted to enhance the learning experience by providing hands-on, executable illustrations of theoretical concepts.
