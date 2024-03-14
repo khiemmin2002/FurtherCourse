@@ -15,4 +15,14 @@ public class SchoolSystem {
         studentList[studentCount++] = student;
     }
 
+    // Add a lecturer to the lecturerList
+    public void addLecturer(Lecturers lecturer) {
+        lecturerList[lecturerCount++] = lecturer;
+    }
+
+    // Add a project to the projectList
+    public void addProject(Project project) {
+        projectList[projectCount++] = project;
+    }
+
 }
