@@ -1,0 +1,8 @@
+s123, Zhao Lusi, IT, RMIT-IT
+s124, Ju Jingyi, IT, RMIT-IT
+s125, Erling Haaland, SE, RMIT-IT
+s126, Liu Yifei, IT, No Project
+s127, JENNIE, SE, No Project
+s128, ROSE, DS, No Project
+s129, LISA, DS, No Project
+s130, Ederson, SE, No Project

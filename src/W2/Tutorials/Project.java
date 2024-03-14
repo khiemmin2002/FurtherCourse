@@ -50,15 +50,16 @@ public class Project {
      * @param newMember a Lecturer who want to join this project
      */
     public boolean addMember(Object newMember) {
-        if (isNotFull())
-            return false;
-        /*
-           Assume duplication has been handled when adding a new member
-           so we do not have to check it
-         */
-        if (!(newMember instanceof PartTimeStudents)) {
-            members[memberCount++] = newMember;
+        // Proceed only if there is space to add a new member
+        if (!isNotFull()) {
+            return false; // Project is full, cannot add more members
+        }
 
+        // Now the logic to add a member proceeds
+        if (!(newMember instanceof PartTimeStudents)) {
+            members[memberCount++] = newMember; // Increment memberCount after adding
+
+            // Your existing logic to handle FullTimeStudents and Lecturers
             // Add project back to the researchers
             if (newMember instanceof FullTimeStudents) {
                 ((FullTimeStudents) newMember).setProject(this);
@@ -66,18 +67,21 @@ public class Project {
                 ((Lecturers) newMember).getJoinedProjects()[((Lecturers) newMember).getProjectCount()] = this;
                 ((Lecturers) newMember).setProjectCount(((Lecturers) newMember).getProjectCount() + 1);
             }
+            return true; // Member added successfully
         }
 
-        return true;
+        // If newMember is a PartTimeStudent, this line is reached and false is returned.
+        return false;
     }
+
 
 
     /**
      * display all members in this project (including leader and regular member)
      */
     public void displayMembers() {
-        // display leader
-        System.out.println("Leader: " + leader);
+        // display leader (if no leader, display "No leader")
+        System.out.println("Leader: " + (leader == null ? "No leader" : leader));
 
         // display regular members
         for(int i = 0; i < memberCount; i++) {
@@ -90,6 +94,15 @@ public class Project {
     }
 
     public boolean isNotFull() {
-        return memberCount <= MAX_MEMBERS;
+        return memberCount < MAX_MEMBERS;
     }
+
+    @Override
+    public String toString() {
+        // Assuming the Lecturers class has a meaningful toString method,
+        // or you could simply use the leader's name if it's a string property.
+        // If the leader can be null, handle it to avoid NullPointerException.
+        return String.format("%s, Budget: %.2f", name, budget);
+    }
+
 }

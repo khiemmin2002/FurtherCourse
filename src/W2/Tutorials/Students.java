@@ -35,10 +35,6 @@ public abstract class Students {
 
     @Override
     public String toString() {
-        return "Students{" +
-                "studentId='" + studentId + '\'' +
-                ", fullName='" + fullName + '\'' +
-                ", major='" + major + '\'' +
-                '}';
+        return String.format("Student ID: %s, Full Name: %s, Major: %s", studentId, fullName, major);
     }
 }
