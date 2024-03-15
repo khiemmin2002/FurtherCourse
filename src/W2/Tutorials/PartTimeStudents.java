@@ -13,6 +13,13 @@ public class PartTimeStudents extends Students {
         countPartTimeStudents++;
     }
 
+    public PartTimeStudents(String studentId, String fullName, String major) {
+        super(studentId, fullName, major);
+        this.minHours = 0;
+        this.maxHours = 0;
+        countPartTimeStudents++;
+    }
+
     public PartTimeStudents(String studentId, String fullName, String major, double minHours, double maxHours) {
         super(studentId, fullName, major);
         this.minHours = minHours;

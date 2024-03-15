@@ -133,7 +133,7 @@ public class Lecturers {
         return projectCount;
     }
 
-    public void setProjectCount(int i) {
-        projectCount = i;
+    public void setProjectCount(int projectCount) {
+        this.projectCount = projectCount;
     }
 }

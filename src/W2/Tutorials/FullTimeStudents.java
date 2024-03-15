@@ -14,6 +14,11 @@ public class FullTimeStudents extends Students {
         this.project = null;
     }
 
+    public FullTimeStudents(String studentId, String fullName, String major) {
+        super(studentId, fullName, major);
+        this.project = null;
+    }
+
     public FullTimeStudents(String studentId, String fullName, String major, Project project) {
         super(studentId, fullName, major);
         this.project = project;
