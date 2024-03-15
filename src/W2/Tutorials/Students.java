@@ -33,6 +33,10 @@ public abstract class Students {
         this.major = major;
     }
 
+    public void readStudentsFile() {
+        // Read from students.txt
+    }
+
     @Override
     public String toString() {
         return String.format("Student ID: %s, Full Name: %s, Major: %s", studentId, fullName, major);

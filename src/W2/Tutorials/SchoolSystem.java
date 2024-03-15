@@ -118,6 +118,9 @@ public class SchoolSystem {
         // Count the number of part-time students
         System.out.println("Number of part-time students is: " + PartTimeStudents.getCountPartTimeStudents());
 
+        // Read from file
+        stu1.readStudentsFile();
+
 
     }
 

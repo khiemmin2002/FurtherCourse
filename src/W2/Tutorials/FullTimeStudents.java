@@ -1,5 +1,7 @@
 package W2.Tutorials;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -52,6 +54,20 @@ public class FullTimeStudents extends Students {
         }
     }
 
+    @Override
+    public void readStudentsFile() {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("./src/W2/Tutorials/students.txt"));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] studentInfo = line.split(", ");
+                System.out.println(String.format("Student ID: %s, Full Name: %s, Major: %s, Project: %s", studentInfo[0], studentInfo[1], studentInfo[2], studentInfo[3]));
+            }
+            reader.close();
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "An error occurred while reading the file.", e);
+        }
+    }
 
     @Override
     public String toString() {
