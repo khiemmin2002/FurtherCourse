@@ -7,9 +7,10 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class FullTimeStudents extends Students {
+public class FullTimeStudents extends Students implements Researcher {
     private static final Logger LOGGER = Logger.getLogger(FullTimeStudents.class.getName());
     private Project project;
+    private String researchProfile;
 
     public FullTimeStudents() {
         super();
@@ -67,6 +68,16 @@ public class FullTimeStudents extends Students {
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "An error occurred while reading the file.", e);
         }
+    }
+
+    @Override
+    public void setProfile(String profile) {
+        this.researchProfile = "Student(" + profile + ")";
+    }
+
+    @Override
+    public String getProfile() {
+        return this.researchProfile;
     }
 
     @Override

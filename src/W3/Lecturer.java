@@ -1,29 +1,35 @@
-package W2.Tutorials;
+package W3;
 
-public class Lecturers implements Researcher{
+// Import library for Collection
+import java.util.List;
+import java.util.ArrayList;
+
+public class Lecturer implements Researcher{
     private String employeeId;
     private String fullName;
     private String rank;
     private Project projectLed;
     // assume the maximum number of projects a lecturer can join at one time is 10
-    private final int MAX_PROJECTS = 10;
-    private Project[] joinedProjects;
-    private int projectCount = 0;
-
+    //private final int MAX_PROJECTS = 10;
+    //private Project[] joinedProjects;
+    //private int projectCount = 0;
+    private List<Project> joinedProjects;
     private String researchProfile;
 
-    public Lecturers()  {
+    public Lecturer()  {
         this.employeeId = "Default";
         this.fullName = "Default";
         this.rank = "Default";
-        joinedProjects = new Project[MAX_PROJECTS];
+        //joinedProjects = new Project[MAX_PROJECTS];
+        joinedProjects = new ArrayList<Project>();
         this.researchProfile = "";
     }
-    public Lecturers(String employeeId, String fullName, String rank) {
+    public Lecturer(String employeeId, String fullName, String rank) {
         this.employeeId = employeeId;
         this.fullName = fullName;
         this.rank = rank;
-        joinedProjects = new Project[MAX_PROJECTS];
+        //joinedProjects = new Project[MAX_PROJECTS];
+        joinedProjects = new ArrayList<Project>();
         this.researchProfile = "";
     }
 
@@ -51,6 +57,14 @@ public class Lecturers implements Researcher{
         return false;
     }
 
+    //public int getProjectCount() {
+    //    return projectCount;
+    //}
+
+    //public void setProjectCount(int projectCount) {
+    //    this.projectCount = projectCount;
+    //}
+
     /**
      * assign the current lecturer as a member of a project
      * <p>
@@ -61,16 +75,26 @@ public class Lecturers implements Researcher{
      * @param p the project to join
      * @return true if the assignment is successful, otherwise, return false
      */
+    @Override
     public boolean joinProject(Project p) {
-        // Short-circuit evaluation, if the first condition is false
-        // the second condition will not be evaluated
-        if (projectCount < 10) {
-            this.joinedProjects[projectCount++] = p;
-            p.setMember(this);
-            return true;
+        if (p.getMembers().contains(this)){
+            return false;
         }
-        return false;
+        joinedProjects.add(p);
+        p.setMember(this);
+        return true;
     }
+
+    @Override
+    public void setProfile(String profile) {
+        this.researchProfile = "Lecturer(" + profile + ")";
+    }
+
+    @Override
+    public String getProfile() {
+        return this.researchProfile;
+    }
+
 
     /**
      * check if the current lecturer is leading any project
@@ -92,7 +116,7 @@ public class Lecturers implements Researcher{
         return rank;
     }
 
-    public Project[] getJoinedProjects() {
+    public List<Project> getJoinedProjects() {
         return joinedProjects;
     }
 
@@ -120,16 +144,6 @@ public class Lecturers implements Researcher{
         return false;
     }
 
-    @Override
-    public void setProfile(String profile) {
-        this.researchProfile = "Lecturer(" + profile + ")";
-    }
-
-    @Override
-    public String getProfile() {
-        return this.researchProfile;
-    }
-
     /**
      * String representation of this lecturer
      * <p>
@@ -142,13 +156,5 @@ public class Lecturers implements Researcher{
         // String.format() is similar to printf, but it return instead of display
         return String.format("Id: %s, Name: %s, Rank: %s",
                 employeeId, fullName, rank);
-    }
-
-    public int getProjectCount() {
-        return projectCount;
-    }
-
-    public void setProjectCount(int projectCount) {
-        this.projectCount = projectCount;
     }
 }

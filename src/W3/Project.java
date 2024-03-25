@@ -1,25 +1,31 @@
-package W2.Tutorials;
+package W3;
 
-import java.util.ArrayList;
+// Import library for Collection
 import java.util.List;
+import java.util.ArrayList;
 
 public class Project {
     private String name;
     private double budget;
-    private Lecturers leader;
-    private Researcher[] members;
-    private final int MAX_MEMBERS = 10;
-    private int memberCount = 0;
+    private Lecturer leader;
+
+    //private Researcher[] members;
+    //private final int MAX_MEMBERS = 10;
+    //private int memberCount = 0;
+    // Use List interface
+    private List<Researcher> members;
 
     public Project() {
         this.name = "Default";
         this.budget = 0;
-        members = new Researcher[MAX_MEMBERS];
+        //members = new Researcher[MAX_MEMBERS];
+        members = new ArrayList<Researcher>();
     }
     public Project(String name, double budget) {
         this.name = name;
         this.budget = budget;
-        members = new Researcher[MAX_MEMBERS];
+        //members = new Researcher[MAX_MEMBERS];
+        members = new ArrayList<Researcher>();
     }
 
     /**
@@ -27,7 +33,7 @@ public class Project {
      * @return the Lecturer who is the leader,
      * or null if there is no leader for this project
      */
-    public Lecturers getLeader() {
+    public Lecturer getLeader() {
         return leader;
     }
 
@@ -40,32 +46,19 @@ public class Project {
      * </p>
      * @param leader the new leader for this project
      */
-    public void assignLeader(Lecturers leader) {
+    public void assignLeader(Lecturer leader) {
         this.leader = leader;
     }
 
     /**
      * add a new member to this project
      * <p>
-     * Add a new member to this project. At this point, there
-     * is no checking at all
+     * Check condition and add a new member to this project
      * </p>
-     * @param newMember a Lecturer who want to join this project
+     * @param newMember a Researcher who want to join this project
      */
     public boolean addMember(Researcher newMember) {
-        if (!isNotFull())
-            return false;
-        /*
-           Assume duplication has been handled when adding a new member
-           so we do not have to check it
-         */
-        newMember.joinProject(this);
-        return true;
-
-    }
-
-    public boolean isNotFull() {
-        return memberCount != MAX_MEMBERS;
+        return newMember.joinProject(this);
     }
 
     public String getName() {
@@ -73,12 +66,22 @@ public class Project {
     }
 
     public int getMemberCount() {
-        return memberCount;
+        //return memberCount;
+        return members.size();
+    }
+
+    public List<Researcher> getMembers() {
+        return members;
     }
 
     public void setMember(Researcher newMember) {
-        members[memberCount++] = newMember;
+        //members[memberCount++] = newMember;
+        members.add(newMember);
     }
+
+    //public boolean isNotFull(){
+    //    return memberCount != MAX_MEMBERS;
+    //}
 
     /**
      * display all members in this project (including leader and regular member)
@@ -88,8 +91,13 @@ public class Project {
         System.out.println("Leader: " + leader);
 
         // display regular members
-        for(int i = 0; i < memberCount; i++) {
-            System.out.printf("Member #%d: " + members[i] + "\n", i + 1);
+        //for(int i = 0; i < memberCount; i++) {
+        //    System.out.printf("Member #%d: " + members[i] + "\n", i + 1);
+        //}
+        for (int i = 0; i < members.size(); i++)  {
+            System.out.printf("Member #%d: " + members.get(i) + "\n", i + 1);
         }
     }
+
 }
+
