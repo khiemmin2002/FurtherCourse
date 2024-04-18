@@ -42,13 +42,12 @@ public class PartTimeStudent extends Student {
 
     @Override
     public String toString() {
-        return "PartTimeStudent{" +
-                "name='" + getName() + '\'' +
-                ", major='" + getMajor() + '\'' +
-                ", id='" + getId() + '\'' +
-                "minHour=" + minHour +
-                ", maxHour=" + maxHour +
-                '}';
+        return "Part Time Student: " +
+                "\nName: " + getName() +
+                "\nMajor='" + getMajor() +
+                "\nID: " + getId() +
+                "\nMin Hour: " + minHour +
+                "\nMax Hour: " + maxHour;
     }
 }
 

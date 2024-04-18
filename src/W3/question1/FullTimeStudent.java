@@ -52,11 +52,10 @@ public class FullTimeStudent extends Student implements Researcher {
 
     @Override
     public String toString() {
-        return "FullTimeStudent{" +
-                "name='" + getName() + '\'' +
-                ", major='" + getMajor() + '\'' +
-                ", id='" + getId() + '\'' +
-                ", project='" + getProject().getName() + '\'' +
-                '}';
+        return "FullTimeStudent: " +
+                "Name: " + getName() +
+                ", Major: " + getMajor() +
+                ", ID: " + getId() +
+                ", Project: " + getProject().getName();
     }
 }

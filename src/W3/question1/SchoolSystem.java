@@ -13,16 +13,17 @@ public class SchoolSystem {
 
 
 
-        Project p1 = new Project("AI", 999.9);
-        Project p2 = new Project("ML", 1234.5);
+        Project p1 = new Project("AI", 25000);
+        Project p2 = new Project("ML", 34000);
+        Project p3 = new Project("Cloud System", 40000);
 
         // Must display true
         boolean b = ((Lecturer) lecturer1).leadProject(p1);
-        System.out.println(b);
+        System.out.println(b + " Lecturer 1 is leading project 1");
 
         // Must display false (p1 has a leader already)
         b = ((Lecturer) lecturer2).leadProject(p1);
-        System.out.println(b);
+        System.out.println(b + " Lecturer 2 cant leading project 1");
 
         // Must display false (lecturer1 is leading a project)
         b = ((Lecturer) lecturer1).leadProject(p2);

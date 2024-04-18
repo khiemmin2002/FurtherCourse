@@ -34,10 +34,9 @@ public abstract class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
-                ", major='" + major + '\'' +
-                ", id='" + id + '\'' +
-                '}';
+        return "Student Details:" +
+                "\nName=: " + name +
+                "\nMajor: '" + major +
+                "\nID: '" + id;
     }
 }

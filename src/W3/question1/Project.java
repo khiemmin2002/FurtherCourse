@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Project {
-    private String name;
+    private final String name;
     private double budget;
     private Lecturer leader;
 

@@ -13,7 +13,7 @@ public class Lecturer implements Researcher{
     //private final int MAX_PROJECTS = 10;
     //private Project[] joinedProjects;
     //private int projectCount = 0;
-    private List<Project> joinedProjects;
+    private final List<Project> joinedProjects;
     private String researchProfile;
 
     public Lecturer()  {
